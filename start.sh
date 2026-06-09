@@ -1,8 +1,8 @@
 #!/bin/bash
-# start.sh — kick off the voice-clone-video-dub pipeline.
+# start.sh — kick off the kev-youtube-video-clone-translate pipeline.
 #
 # This is a thin wrapper. The actual orchestration lives in
-# voice-clone-video-dub/SKILL.md and is intended to be driven by
+# kev-youtube-video-clone-translate/SKILL.md and is intended to be driven by
 # an LLM in Mavis. This script exists for two cases:
 #
 #   1. Quick smoke test: ./start.sh https://youtu.be/...
@@ -19,7 +19,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$SCRIPT_DIR/voice-clone-video-dub"
+SKILL_DIR="$SCRIPT_DIR/kev-youtube-video-clone-translate"
 VENV_BIN="${VENV_BIN:-$SCRIPT_DIR/venv/bin/python}"
 DRY_RUN=0
 
@@ -58,7 +58,7 @@ if ! command -v ffmpeg >/dev/null 2>&1; then
 fi
 if [[ ! -x "$VENV_BIN" && ! -f "$VENV_BIN" ]]; then
   echo "WARN: venv python not found at $VENV_BIN."
-  echo "      Run bash voice-clone-video-dub/scripts/install-deps.sh to create it."
+  echo "      Run bash kev-youtube-video-clone-translate/scripts/install-deps.sh to create it."
   echo "      Or set VENV_BIN=/path/to/python to point at an existing venv."
   if [[ $DRY_RUN -eq 0 ]]; then
     exit 1

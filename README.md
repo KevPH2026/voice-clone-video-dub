@@ -1,4 +1,4 @@
-# 🎙️ voice-clone-video-dub v0.1.0
+# 🎙️ kev-youtube-video-clone-translate v0.1.0
 
 <p align="center">
   <img src="https://img.shields.io/badge/Mavis-skill-blueviolet?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzM3NTdmZiIvPjwvc3ZnPg==">
@@ -58,7 +58,7 @@ own machine — open in any video player, headphones recommended.
 ## ⚡ TL;DR
 
 > Other translation tools give you a video with hardcoded Chinese subs.
-> **voice-clone-video-dub** clones the original speakers' voices and
+> **kev-youtube-video-clone-translate** clones the original speakers' voices and
 > dubs the Chinese translation in their actual timbre — same voice,
 > different language.
 
@@ -67,13 +67,13 @@ Cat Wu sound like themselves speaking Chinese, with hardcoded zh subs.
 
 ---
 
-## 📊 voice-clone-video-dub vs naive translation pipeline
+## 📊 kev-youtube-video-clone-translate vs naive translation pipeline
 
 Most "translate this video" tools stop at subtitles. The voice clone
 step is the differentiator:
 
 <table>
-<tr><th></th><th>Subtitles only<br>(most tools)</th><th>Subtitles + generic TTS<br>(some tools)</th><th>voice-clone-video-dub<br>(this repo)</th></tr>
+<tr><th></th><th>Subtitles only<br>(most tools)</th><th>Subtitles + generic TTS<br>(some tools)</th><th>kev-youtube-video-clone-translate<br>(this repo)</th></tr>
 <tr><td>Subtitles in target language</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>Subtitles burned into video</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>Replaces original audio</td><td>❌</td><td>✅ generic TTS voice</td><td>✅ <b>cloned from source</b></td></tr>
@@ -89,13 +89,13 @@ rest of dubbing.
 
 ---
 
-## 📊 voice-clone-video-dub vs cloud APIs
+## 📊 kev-youtube-video-clone-translate vs cloud APIs
 
 ElevenLabs, Fish Audio, Aliyun CosyVoice all do voice cloning. The
 difference is where the audio goes and who pays.
 
 <table>
-<tr><th></th><th>ElevenLabs / Fish / CosyVoice</th><th>voice-clone-video-dub (this repo)</th></tr>
+<tr><th></th><th>ElevenLabs / Fish / CosyVoice</th><th>kev-youtube-video-clone-translate (this repo)</th></tr>
 <tr><td>Audio sent to cloud</td><td>☁️ yes</td><td>✅ no, all local</td></tr>
 <tr><td>Cost per 10-min dub</td><td>~$1-5</td><td>🆓 free</td></tr>
 <tr><td>Cross-lingual quality (EN→ZH)</td><td>✅ best in class</td><td>⚠️ XTTS v2 ceiling, 70-80% as good</td></tr>
@@ -111,13 +111,13 @@ don't mind the cost.
 
 ---
 
-## 📊 voice-clone-video-dub vs manual dubbing
+## 📊 kev-youtube-video-clone-translate vs manual dubbing
 
 The studio alternative: hire a voice actor, record in a booth, lip-sync
 in post. This is the gold standard; we're 70% of the way there for free.
 
 <table>
-<tr><th></th><th>Studio dub</th><th>voice-clone-video-dub</th></tr>
+<tr><th></th><th>Studio dub</th><th>kev-youtube-video-clone-translate</th></tr>
 <tr><td>Time per 10-min video</td><td>1-2 weeks</td><td>30-40 min</td></tr>
 <tr><td>Cost per 10-min video</td><td>$500-2000</td><td>🆓 free</td></tr>
 <tr><td>Voice match to original</td><td>✅ close</td><td>⚠️ timbre, not identity</td></tr>
@@ -133,7 +133,7 @@ this repo. For a theatrical release: still hire a studio.
 
 ## 📦 What's in the box
 
-- **`voice-clone-video-dub/`** — the Mavis skill (SKILL.md + 5 scripts + 3 references)
+- **`kev-youtube-video-clone-translate/`** — the Mavis skill (SKILL.md + 5 scripts + 3 references)
 - **`before_15s.mp4`** — original English (Cat Wu responding to Lenny)
 - **`after_15s.mp4`** — same 15s, voices cloned to Chinese, zh subs burned
 - **`demo.mp4`** — 30s full demo with both speakers
@@ -173,16 +173,16 @@ The skill will:
 ## 📥 Install (one-time per machine)
 
 ```bash
-git clone https://github.com/KevPH2026/voice-clone-video-dub.git
-cd voice-clone-video-dub
-bash voice-clone-video-dub/scripts/install-deps.sh
+git clone https://github.com/KevPH2026/kev-youtube-video-clone-translate.git
+cd kev-youtube-video-clone-translate
+bash kev-youtube-video-clone-translate/scripts/install-deps.sh
 brew install ffmpeg-full yt-dlp
 claude auth login
 export HF_ENDPOINT=https://hf-mirror.com  # only if HuggingFace is blocked
 ```
 
 Or follow the manual steps in
-`voice-clone-video-dub/references/xtts-setup.md`.
+`kev-youtube-video-clone-translate/references/xtts-setup.md`.
 
 ## 🎯 Try it on a sample
 
@@ -231,7 +231,7 @@ The v1-v5 iterations that produced this skill are documented in
 ├── after_15s.mp4                   # cloned Chinese
 ├── screenshot.png / screenshot-lenny.png / screenshot-catwu.png / screenshot-subtitle.png
 ├── social-preview.png              # 1200x630 GitHub social card
-└── voice-clone-video-dub/          # the Mavis skill
+└── kev-youtube-video-clone-translate/          # the Mavis skill
     ├── SKILL.md                    # 263-line procedure + setup
     ├── scripts/                    # 5 deterministic scripts
     │   ├── clean-subs.js

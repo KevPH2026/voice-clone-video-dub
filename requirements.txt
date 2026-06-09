@@ -1,9 +1,9 @@
-# voice-clone-video-dub — runtime dependencies
+# kev-youtube-video-clone-translate — runtime dependencies
 
 # This file lists the Python packages needed to RUN the skill.
 # It is informational; the canonical install command is:
 #
-#   bash voice-clone-video-dub/scripts/install-deps.sh
+#   bash kev-youtube-video-clone-translate/scripts/install-deps.sh
 #
 # Versions are pinned to what was tested on macOS 14 + Apple Silicon
 # in June 2026. Newer minors should work; older may not.

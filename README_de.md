@@ -1,4 +1,4 @@
-# 🎙️ voice-clone-video-dub v0.1.0
+# 🎙️ kev-youtube-video-clone-translate v0.1.0
 
 <p align="center">
   <img src="https://img.shields.io/badge/Mavis-skill-blueviolet">
@@ -26,7 +26,7 @@
 ## ⚡ TL;DR
 
 > Other translation tools give you a video with hardcoded Chinese subs.
-> **voice-clone-video-dub** clones the original speakers' voices and
+> **kev-youtube-video-clone-translate** clones the original speakers' voices and
 > dubs the Chinese translation in their actual timbre.
 
 You give it a YouTube link. It gives you a 10-min MP4 where Lenny and
@@ -41,9 +41,9 @@ tables, and install steps, see [README.md](README.md) (English) or
 ## 🚀 Quick start (universal)
 
 ```bash
-git clone https://github.com/KevPH2026/voice-clone-video-dub.git
-cd voice-clone-video-dub
-bash voice-clone-video-dub/scripts/install-deps.sh
+git clone https://github.com/KevPH2026/kev-youtube-video-clone-translate.git
+cd kev-youtube-video-clone-translate
+bash kev-youtube-video-clone-translate/scripts/install-deps.sh
 brew install ffmpeg-full yt-dlp
 claude auth login
 ```

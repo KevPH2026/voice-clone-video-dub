@@ -1,4 +1,4 @@
-# 🎙️ voice-clone-video-dub v0.1.0
+# 🎙️ kev-youtube-video-clone-translate v0.1.0
 
 <p align="center">
   <img src="https://img.shields.io/badge/Mavis-技能-blueviolet">
@@ -26,7 +26,7 @@
 
 ## ⚡ 一句话总结
 
-> 别的翻译工具给你"视频 + 中文字幕"。**voice-clone-video-dub**
+> 别的翻译工具给你"视频 + 中文字幕"。**kev-youtube-video-clone-translate**
 > 还会克隆原说话人的音色，用他们"本来的声音"念中文——同一个
 > 人，不同的语言。
 
@@ -39,7 +39,7 @@
 
 市面上大多数"翻译视频"工具只到硬字幕就停。**声音克隆**才是差异点：
 
-|  | 字幕版（多数工具） | 字幕 + 通用 TTS（少数） | voice-clone-video-dub（这个） |
+|  | 字幕版（多数工具） | 字幕 + 通用 TTS（少数） | kev-youtube-video-clone-translate（这个） |
 |---|---|---|---|
 | 目标语言字幕 | ✅ | ✅ | ✅ |
 | 字幕烧录到视频 | ✅ | ✅ | ✅ |
@@ -56,7 +56,7 @@
 
 ## 📊 vs 云端克隆 API（ElevenLabs / Fish / CosyVoice）
 
-|  | ElevenLabs / Fish / CosyVoice | voice-clone-video-dub（这个） |
+|  | ElevenLabs / Fish / CosyVoice | kev-youtube-video-clone-translate（这个） |
 |---|---|---|
 | 音频上云 | ☁️ 是 | ✅ 不上云，全本地 |
 | 10 分钟配音成本 | ~$1-5 | 🆓 免费 |
@@ -72,7 +72,7 @@
 
 ## 📊 vs 专业配音棚
 
-|  | 配音棚 | voice-clone-video-dub |
+|  | 配音棚 | kev-youtube-video-clone-translate |
 |---|---|---|
 | 10 分钟视频耗时 | 1-2 周 | 30-40 分钟 |
 | 10 分钟视频成本 | $500-2000 | 🆓 免费 |
@@ -101,15 +101,15 @@ skill 会：
 ## 📥 安装（一次性）
 
 ```bash
-git clone https://github.com/KevPH2026/voice-clone-video-dub.git
-cd voice-clone-video-dub
-bash voice-clone-video-dub/scripts/install-deps.sh
+git clone https://github.com/KevPH2026/kev-youtube-video-clone-translate.git
+cd kev-youtube-video-clone-translate
+bash kev-youtube-video-clone-translate/scripts/install-deps.sh
 brew install ffmpeg-full yt-dlp
 claude auth login
 export HF_ENDPOINT=https://hf-mirror.com  # 仅当 HuggingFace 访问不通时
 ```
 
-或者照 `voice-clone-video-dub/references/xtts-setup.md` 手动装。
+或者照 `kev-youtube-video-clone-translate/references/xtts-setup.md` 手动装。
 
 ## 🎯 试个样本
 

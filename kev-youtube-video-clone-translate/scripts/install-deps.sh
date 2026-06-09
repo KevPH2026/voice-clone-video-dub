@@ -1,6 +1,6 @@
 #!/bin/bash
 # install-deps.sh — OPTIONAL convenience installer for the
-# voice-clone-video-dub skill.
+# kev-youtube-video-clone-translate skill.
 #
 # This is NOT required to use the skill. If you already have a
 # Python 3.11 venv with TTS + demucs + resemblyzer installed, skip
@@ -35,7 +35,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV="${VENV_PATH:-$SCRIPT_DIR/../venv}"
 PY311="${PY311_BIN:-/opt/homebrew/bin/python3.11}"
 
-echo "voice-clone-video-dub: install-deps"
+echo "kev-youtube-video-clone-translate: install-deps"
 echo "  venv:     $VENV"
 echo "  python:   $PY311"
 echo

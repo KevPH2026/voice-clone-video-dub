@@ -1,5 +1,5 @@
 ---
-name: voice-clone-video-dub
+name: kev-youtube-video-clone-translate
 description: |
   End-to-end pipeline for a foreign-language video: download clip, clean
   auto-captions, translate to Chinese (or any target), optionally voice-clone
@@ -11,7 +11,7 @@ description: |
   transcription, or one-off subtitle file generation.
 ---
 
-# Voice-Clone Video Dub
+# Kevin's YouTube Video Clone & Translate
 
 ## Inputs to collect
 
