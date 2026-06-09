@@ -27,6 +27,34 @@
 
 ---
 
+## 🎬 Before / after — same 15 seconds, two pipelines
+
+Click each image to play the video. The frame on the left is from
+`before_15s.mp4`; the frame on the right is from `after_15s.mp4` —
+same source clip, processed by this skill.
+
+<table>
+<tr>
+<th>Original English (15s)</th>
+<th>Cloned Chinese dub + zh subs (15s)</th>
+</tr>
+<tr>
+<td align="center">
+  <a href="before_15s.mp4"><img src="before_frame.png" width="480" alt="Original English audio"></a><br>
+  <sub>Cat Wu responding to Lenny · English audio · no subs</sub>
+</td>
+<td align="center">
+  <a href="after_15s.mp4"><img src="after_frame.png" width="480" alt="Cloned Chinese audio with subs"></a><br>
+  <sub>Same speaker · same voice · Chinese audio + burned-in subs</sub>
+</td>
+</tr>
+</table>
+
+Both 15s clips are in the repo root. Download them to compare on your
+own machine — open in any video player, headphones recommended.
+
+---
+
 ## ⚡ TL;DR
 
 > Other translation tools give you a video with hardcoded Chinese subs.
