@@ -76,7 +76,7 @@ def make_title_card(duration, fps=30):
         f_stat = ImageFont.truetype(FONT_CN_LIGHT, 28)
 
         # Tag at top
-        draw.text((W // 2, 110), "Kev.FunASR  ·  开源工具", font=f_tag,
+        draw.text((W // 2, 110), "kev-youtube-video-clone-translate  ·  开源工具", font=f_tag,
                   fill=(180, 180, 200, 200), anchor="mm")
         draw.line([(W // 4, 150), (3 * W // 4, 150)],
                   fill=(60, 70, 100, 180), width=1)

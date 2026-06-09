@@ -295,7 +295,7 @@ def make_poster_v3():
 
     # Top-left tag
     f_tag = load_font(FONT_CN_BOLD, 26)
-    draw.text((80, 90), "Kev.FunASR 系列 · 开源工具", font=f_tag, fill=(180, 180, 200, 200))
+    draw.text((80, 90), "kev-youtube-video-clone-translate  ·  开源工具", font=f_tag, fill=(180, 180, 200, 200))
     # Project name (small, top)
     f_proj = load_font(FONT_HEAVY, 36)
     draw.text((80, 145), "kev-youtube-video-clone-translate", font=f_proj, fill=(180, 180, 200, 200))

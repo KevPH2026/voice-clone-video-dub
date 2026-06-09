@@ -93,7 +93,7 @@ def make_poster_v3_final():
 
     # Top-left tag
     f_tag = ImageFont.truetype(FONT_CN_LIGHT, 26)
-    draw.text((80, 60), "Kev.FunASR  ·  开源工具", font=f_tag, fill=(180, 180, 200, 200))
+    draw.text((80, 60), "kev-youtube-video-clone-translate  ·  开源工具", font=f_tag, fill=(180, 180, 200, 200))
     f_proj = ImageFont.truetype(FONT_HEAVY, 32)
     draw.text((80, 105), "kev-youtube-video-clone-translate", font=f_proj,
               fill=(180, 180, 200, 200))
@@ -188,7 +188,7 @@ def make_poster_v2_final():
                       outline=AURORA_PURPLE + (180 - i * 80,), width=1)
     cd.rectangle([0, 0, code_box.size[0], 40], fill=AURORA_PURPLE + (60,))
     f_tt = ImageFont.truetype(FONT_CN_LIGHT, 22)
-    cd.text((24, 20), "v0.2.0  /  开源  /  MIT", font=f_tt, fill=(220, 210, 255, 240))
+    cd.text((24, 20), "v0.1.0  /  开源  /  MIT", font=f_tt, fill=(220, 210, 255, 240))
 
     f_code = ImageFont.truetype(FONT_CODE, 24)
     f_cn = ImageFont.truetype(FONT_CN_LIGHT, 22)
