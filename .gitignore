@@ -45,3 +45,4 @@ runs/
 
 # Mavis daemon / session state
 .mavis/
+.vercel

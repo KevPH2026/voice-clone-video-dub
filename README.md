@@ -18,6 +18,10 @@
 </p>
 
 <p align="center">
+  <b>🌐 <a href="https://vcvd-project.vercel.app/demo">Live demo</a> · <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate">Source on GitHub</a></b>
+</p>
+
+<p align="center">
   <b>🇺🇸 English</b> · <a href="README_zh.md">🇨🇳 中文</a> · <a href="README_ja.md">🇯🇵 日本語</a> · <a href="README_ko.md">🇰🇷 한국어</a> · <a href="README_es.md">🇪🇸 Español</a> · <a href="README_fr.md">🇫🇷 Français</a> · <a href="README_de.md">🇩🇪 Deutsch</a> · <a href="README_pt.md">🇰🇷 Português</a> · <a href="README_ru.md">🇷🇺 Русский</a>
 </p>
 
@@ -53,10 +57,12 @@ same source clip, processed by this skill.
 Both 15s clips are in the repo root. Download them to compare on your
 own machine — open in any video player, headphones recommended.
 
-> **Want a clickable demo page?** Open [`demo.html`](demo.html) in any
-> browser. Single file, no build step, no dependencies. Includes the
-> before/after pair, the full 30s demo, a pipeline explainer, and
-> install CTA.
+> **Want a clickable demo page?** Open
+> [**vcvd-project.vercel.app/demo**](https://vcvd-project.vercel.app/demo)
+> in any browser. Single-file, no build step, no dependencies.
+> Includes the before/after pair, the full 30s demo, a pipeline
+> explainer, and an install CTA. Source:
+> [`demo.html`](demo.html).
 
 ---
 
