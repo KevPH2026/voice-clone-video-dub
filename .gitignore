@@ -1,0 +1,44 @@
+# OS / editor
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python-version
+.pytest_cache/
+.coverage
+.tox/
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Generated / scratch
+*.wav
+*.mp3
+*.tmp
+*.log
+manifest.jsonl
+*.pyc
+
+# Mavis daemon / session state
+.mavis/

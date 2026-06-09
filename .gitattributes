@@ -1,0 +1,24 @@
+# Auto-detect text files; normalize line endings on commit.
+# Shell scripts must keep LF (CRLF breaks them on Linux/macOS).
+* text=auto eol=lf
+
+# Explicit per-extension rules
+*.sh        text eol=lf
+*.js        text eol=lf
+*.py        text eol=lf
+*.md        text eol=lf
+*.json      text eol=lf
+*.srt       text eol=lf
+*.ass       text eol=lf
+*.txt       text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+LICENSE     text eol=lf
+
+# Binary
+*.mp4       binary
+*.mp3       binary
+*.wav       binary
+*.png       binary
+*.jpg       binary
+*.gif       binary

@@ -1,0 +1,41 @@
+# voice-clone-video-dub — runtime dependencies
+
+# This file lists the Python packages needed to RUN the skill.
+# It is informational; the canonical install command is:
+#
+#   bash voice-clone-video-dub/scripts/install-deps.sh
+#
+# Versions are pinned to what was tested on macOS 14 + Apple Silicon
+# in June 2026. Newer minors should work; older may not.
+
+# Core ML
+torch>=2.6,<3.0           # pin major; weights_only=True default in 2.6+ needs the patch
+torchaudio>=2.6,<3.0
+torchcodec>=0.5           # torchaudio 2.11+ lazy-loads wavs via this
+
+# TTS
+TTS==0.22.0               # Coqui TTS — last version with xtts_v2 easy install
+transformers==4.46.1      # 4.47+ removed BeamSearchScorer that TTS 0.22 imports
+
+# Audio / voice processing
+demucs>=4.0               # vocal / music separation
+resemblyzer>=0.1.4        # speaker embeddings for diarization
+
+# Implicit (TTS pulls these in, listed for clarity)
+numpy>=1.26,<3.0
+scipy
+librosa
+soundfile
+
+# ---------------------------------------------------------------------------
+# System-level dependencies (NOT pip-installed, install via brew / apt)
+# ---------------------------------------------------------------------------
+#
+#   ffmpeg-full    -- subtitle burn needs `ass=` filter
+#                     brew install ffmpeg-full    (macOS)
+#                     apt install ...              (Linux: build from source)
+#   yt-dlp         -- video download
+#                     brew install yt-dlp
+#
+#   python3.11     -- TTS 0.22 not on 3.12-3.14
+#                     brew install python@3.11
