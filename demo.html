@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kev-youtube-video-clone-translate — Live Demo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0c;
+    --bg-2: #14141a;
+    --fg: #e8e8ed;
+    --fg-dim: #8a8a96;
+    --accent: #6366f1;
+    --accent-2: #a855f7;
+    --green: #10b981;
+    --border: rgba(255, 255, 255, 0.08);
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 110%, rgba(168, 85, 247, 0.12), transparent 60%),
+      var(--bg);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    color: var(--fg-dim);
+    max-width: 600px;
+    margin: 0 auto 16px;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .badges img { height: 20px; }
+
+  .stage {
+    margin-bottom: 80px;
+  }
+
+  .section-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fg-dim);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    border-radius: 2px;
+  }
+
+  /* Before / After grid */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 800px) {
+    .compare { grid-template-columns: 1fr; }
+  }
+
+  .video-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .video-card .label {
+    padding: 16px 20px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .video-card .label.before { color: var(--fg-dim); }
+  .video-card .label.after  { color: var(--green); }
+
+  .video-card .title {
+    padding: 0 20px 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .video-card video,
+  .video-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: #000;
+  }
+
+  .video-card .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4));
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  .video-card.playing .play-overlay { opacity: 0; }
+
+  .play-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .play-button::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 18px solid var(--bg);
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    margin-left: 4px;
+  }
+
+  /* Full demo */
+  .full-demo {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 64px;
+  }
+
+  .full-demo video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+  }
+
+  .full-demo .meta {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .full-demo .meta h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .full-demo .meta p {
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+  }
+
+  /* Pipeline explainer */
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 900px) {
+    .pipeline { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .pipeline { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .step {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .step:hover { border-color: var(--accent); }
+
+  .step .num {
+    font-size: 0.7rem;
+    color: var(--fg-dim);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .step .name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .step .tool {
+    font-size: 0.7rem;
+    color: var(--fg-dim);
+    margin-top: 4px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  /* Numbers */
+  .numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 700px) {
+    .numbers { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .number {
+    text-align: center;
+  }
+
+  .number .big {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .number .label {
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta p {
+    color: var(--fg-dim);
+    margin-bottom: 24px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, background 0.15s, border-color 0.15s;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: white;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover { border-color: var(--fg-dim); }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--fg-dim); text-decoration: none; }
+  footer a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>kev-youtube-video-clone-translate</h1>
+    <p class="tagline">A foreign-language YouTube video, in your language, in the original speakers' voices — with hardcoded subtitles.</p>
+    <div class="badges">
+      <img src="https://img.shields.io/badge/Mavis-skill-blueviolet" alt="Mavis skill">
+      <img src="https://img.shields.io/badge/python-3.11-blue?logo=python&logoColor=white" alt="Python 3.11">
+      <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT">
+      <img src="https://img.shields.io/badge/clone-XTTS%20v2-orange" alt="XTTS v2">
+      <img src="https://img.shields.io/badge/sep-Demucs%20v4-blue" alt="Demucs v4">
+      <img src="https://img.shields.io/badge/translation-Claude%20Code-purple" alt="Claude Code">
+    </div>
+  </header>
+
+  <!-- 15-second side-by-side -->
+  <section class="stage">
+    <h2 class="section-title">Before / After — same 15 seconds</h2>
+    <div class="compare">
+      <div class="video-card" data-video="before_15s.mp4" data-poster="before_frame.png">
+        <div class="label before">Original · English</div>
+        <div class="title">Cat Wu responding in English</div>
+        <img src="before_frame.png" alt="Original English audio">
+        <div class="play-overlay">
+          <div class="play-button"></div>
+        </div>
+      </div>
+      <div class="video-card" data-video="after_15s.mp4" data-poster="after_frame.png">
+        <div class="label after">After · Cloned Chinese</div>
+        <div class="title">Same voice · Chinese dub + subs</div>
+        <img src="after_frame.png" alt="Cloned Chinese audio with subs">
+        <div class="play-overlay">
+          <div class="play-button"></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; color: var(--fg-dim); font-size: 0.9rem;">
+      👆 Click either card to play · use headphones to hear the timbre match
+    </p>
+  </section>
+
+  <!-- Full 30s demo -->
+  <section class="stage">
+    <h2 class="section-title">Full 30s demo — both speakers</h2>
+    <div class="full-demo">
+      <video controls preload="metadata" poster="screenshot.png">
+        <source src="demo.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="meta">
+        <div>
+          <h3>Lenny's Podcast · Cat Wu (Anthropic) · t=10s–40s</h3>
+          <p>Cloned from a 30-second slice of the source video · 3-vote speaker attribution · burned-in zh subtitles</p>
+        </div>
+        <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate" class="btn btn-secondary">View source on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline -->
+  <section class="stage">
+    <h2 class="section-title">The pipeline</h2>
+    <div class="pipeline">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="name">Acquire</div>
+        <div class="tool">yt-dlp</div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="name">Clean subs</div>
+        <div class="tool">clean-subs.js</div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="name">Translate</div>
+        <div class="tool">Claude Code</div>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <div class="name">Speakers</div>
+        <div class="tool">3-vote</div>
+      </div>
+      <div class="step">
+        <div class="num">05</div>
+        <div class="name">Clone voice</div>
+        <div class="tool">Demucs + XTTS</div>
+      </div>
+      <div class="step">
+        <div class="num">06</div>
+        <div class="name">Burn + render</div>
+        <div class="tool">ffmpeg ass=</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="stage">
+    <h2 class="section-title">Numbers from the test run</h2>
+    <div class="numbers">
+      <div class="number">
+        <div class="big">138</div>
+        <div class="label">segments</div>
+      </div>
+      <div class="number">
+        <div class="big">0</div>
+        <div class="label">failures</div>
+      </div>
+      <div class="number">
+        <div class="big">12m</div>
+        <div class="label">wall time</div>
+      </div>
+      <div class="number">
+        <div class="big">93MB</div>
+        <div class="label">output MP4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Try it on your own video</h2>
+    <p>Inside Mavis, give it a YouTube link and ask to translate + clone voices. The skill handles the rest.</p>
+    <div class="cta-buttons">
+      <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate#-install-one-time-per-machine" class="btn btn-primary">Install the skill</a>
+      <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate/blob/main/ENHANCEMENTS.md" class="btn btn-secondary">Read the v1→v5 story</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>
+    <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate">GitHub</a> ·
+    MIT licensed ·
+    Demo samples from <a href="https://www.youtube.com/@LennysPodcast">Lenny's Podcast</a>
+  </p>
+</footer>
+
+<script>
+  // Click-to-play on the before/after cards
+  document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const video = card.dataset.video;
+      const poster = card.dataset.poster;
+      const html = `
+        <video controls autoplay style="width:100%; aspect-ratio:16/9; object-fit:cover; background:#000;">
+          <source src="${video}" type="video/mp4">
+        </video>
+      `;
+      // Replace card content with a video
+      card.innerHTML = `<div class="label ${video.includes('after') ? 'after' : 'before'}">${video.includes('after') ? 'After · Cloned Chinese' : 'Original · English'}</div><div class="title">${video.includes('after') ? 'Same voice · Chinese dub + subs' : 'Cat Wu responding in English'}</div>${html}`;
+      card.classList.add('playing');
+      card.style.cursor = 'default';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -53,6 +53,11 @@ same source clip, processed by this skill.
 Both 15s clips are in the repo root. Download them to compare on your
 own machine — open in any video player, headphones recommended.
 
+> **Want a clickable demo page?** Open [`demo.html`](demo.html) in any
+> browser. Single file, no build step, no dependencies. Includes the
+> before/after pair, the full 30s demo, a pipeline explainer, and
+> install CTA.
+
 ---
 
 ## ⚡ TL;DR
@@ -226,9 +231,11 @@ The v1-v5 iterations that produced this skill are documented in
 ├── .gitignore
 ├── .gitattributes                  # normalize line endings
 ├── start.sh                        # one-command demo (after install)
+├── demo.html                       # standalone click-to-play demo page
 ├── demo.mp4                        # 30s demo
 ├── before_15s.mp4                  # original English
 ├── after_15s.mp4                   # cloned Chinese
+├── before_frame.png / after_frame.png          # click-to-play previews
 ├── screenshot.png / screenshot-lenny.png / screenshot-catwu.png / screenshot-subtitle.png
 ├── social-preview.png              # 1200x630 GitHub social card
 └── kev-youtube-video-clone-translate/          # the Mavis skill
