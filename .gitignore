@@ -40,5 +40,8 @@ package-lock.json
 manifest.jsonl
 *.pyc
 
+# Pipeline run output (created by start.sh)
+runs/
+
 # Mavis daemon / session state
 .mavis/
