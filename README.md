@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <b>🌐 <a href="https://vcvd-project.vercel.app/demo">Live demo</a> · <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate">Source on GitHub</a></b>
+  <b>🌐 <a href="https://vcvd-project.vercel.app/">Live demo</a> · <a href="https://vcvd-project.vercel.app/demo">/demo</a> · <a href="https://github.com/KevPH2026/kev-youtube-video-clone-translate">Source on GitHub</a></b>
 </p>
 
 <p align="center">
@@ -58,11 +58,11 @@ Both 15s clips are in the repo root. Download them to compare on your
 own machine — open in any video player, headphones recommended.
 
 > **Want a clickable demo page?** Open
-> [**vcvd-project.vercel.app/demo**](https://vcvd-project.vercel.app/demo)
-> in any browser. Single-file, no build step, no dependencies.
-> Includes the before/after pair, the full 30s demo, a pipeline
-> explainer, and an install CTA. Source:
-> [`demo.html`](demo.html).
+> [**vcvd-project.vercel.app**](https://vcvd-project.vercel.app/)
+> in any browser. The landing page links to a deeper
+> [`/demo`](https://vcvd-project.vercel.app/demo) page that includes
+> the before/after pair, the full 30s demo, a pipeline explainer, and
+> an install CTA. Source: [`index.html`](index.html) + [`demo.html`](demo.html).
 
 ---
 
